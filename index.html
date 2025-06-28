@@ -3,269 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Delight - Fine Dining Experience</title>
-    <link rel="stylesheet" href="style.css">
-   
+    <title>Elite Properties - Luxury Housing Solutions</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f39c12;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #f39c12;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Featured Properties */
+        .featured {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+        
+        .properties {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .property-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            transition: transform 0.3s;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .property-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .property-card:hover .property-img img {
+            transform: scale(1.1);
+        }
+        
+        .property-info {
+            padding: 20px;
+        }
+        
+        .property-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .property-info p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #2c3e50;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #ecf0f1;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #f39c12;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .property-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Gourmet<span>Delight</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <div class="hero-text">
-                <h1>Experience Culinary Excellence</h1>
-                <p>Discover the perfect harmony of flavors crafted by our master chefs using the finest ingredients</p>
-                <a href="#menu" class="btn">View Our Menu</a>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li class="logo">Elite Properties</li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured">Featured</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header id="home">
+        <div class="hero-content">
+            <h1>Find Your Dream Home Today</h1>
+            <p>Discover premium properties in the most desirable locations. We specialize in luxury homes, apartments, and commercial spaces.</p>
+            <a href="#featured" class="btn">View Properties</a>
         </div>
     </header>
     
+    <!-- Featured Properties -->
+    <section class="featured" id="featured">
+        <h2 class="section-title">Featured Properties</h2>
+        <div class="properties">
+            <div class="property-card">
+                <div class="property-img">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury Villa">
+                </div>
+                <div class="property-info">
+                    <h3>Modern Luxury Villa</h3>
+                    <p>5 Bedrooms | 4 Bathrooms | 3500 sq.ft.</p>
+                    <p>Located in the prestigious Hillside neighborhood with panoramic city views.</p>
+                    <p class="price">$1,250,000</p>
+                    <a href="#" class="btn">Details</a>
+                </div>
+            </div>
+            
+            <div class="property-card">
+                <div class="property-img">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Downtown Apartment">
+                </div>
+                <div class="property-info">
+                    <h3>Downtown Penthouse</h3>
+                    <p>3 Bedrooms | 2 Bathrooms | 1800 sq.ft.</p>
+                    <p>Stylish urban living with premium finishes and amazing skyline views.</p>
+                    <p class="price">$850,000</p>
+                    <a href="#" class="btn">Details</a>
+                </div>
+            </div>
+            
+            <div class="property-card">
+                <div class="property-img">
+                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Waterfront Property">
+                </div>
+                <div class="property-info">
+                    <h3>Waterfront Estate</h3>
+                    <p>6 Bedrooms | 5 Bathrooms | 4200 sq.ft.</p>
+                    <p>Exclusive private beach access with boat dock and infinity pool.</p>
+                    <p class="price">$2,750,000</p>
+                    <a href="#" class="btn">Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Story</h2>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Welcome to Gourmet Delight</h3>
-                    <p>Founded in 2010, Gourmet Delight has been serving exquisite dishes that blend traditional recipes with modern culinary techniques. Our passion for food and dedication to quality has made us a favorite dining destination for food enthusiasts.</p>
-                    <p>Every dish at Gourmet Delight tells a story - from the carefully selected ingredients to the artistic presentation. We source our produce from local farmers and trusted suppliers to ensure freshness and sustainability.</p>
-                    <p>Our chefs bring years of international experience and creativity to the kitchen, crafting memorable dining experiences for our valued guests.</p>
-                </div>
-                
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80" alt="Restaurant Interior">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Menu Section -->
-    <section class="menu" id="menu">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Specialties</h2>
-            </div>
-            
-            <div class="menu-items">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Steak Dish">
-                    <div class="menu-item-content">
-                        <h3>Prime Rib Steak</h3>
-                        <p>Juicy 12oz prime rib served with roasted vegetables and our signature sauce</p>
-                        <div class="price">$32.99</div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=1348&q=80" alt="Pasta Dish">
-                    <div class="menu-item-content">
-                        <h3>Truffle Pasta</h3>
-                        <p>Homemade pasta with wild mushrooms, truffle oil, and parmesan cheese</p>
-                        <div class="price">$24.99</div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Salmon Dish">
-                    <div class="menu-item-content">
-                        <h3>Grilled Salmon</h3>
-                        <p>Fresh Atlantic salmon with lemon butter sauce and seasonal vegetables</p>
-                        <div class="price">$28.99</div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Salad Dish">
-                    <div class="menu-item-content">
-                        <h3>Mediterranean Salad</h3>
-                        <p>Fresh greens with feta cheese, olives, tomatoes, and our house dressing</p>
-                        <div class="price">$16.99</div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dessert">
-                    <div class="menu-item-content">
-                        <h3>Chocolate Soufflé</h3>
-                        <p>Warm chocolate soufflé with vanilla ice cream and berry compote</p>
-                        <div class="price">$12.99</div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Drink">
-                    <div class="menu-item-content">
-                        <h3>Signature Cocktails</h3>
-                        <p>Try our mixologist's special creations with premium spirits</p>
-                        <div class="price">$14.99</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Guests Say</h2>
-            </div>
-            
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <p>The best dining experience I've had this year! The steak was cooked to perfection and the service was impeccable. Will definitely be back!</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <span>Food Critic</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <p>Every dish we tried was exceptional. The flavors were balanced and the presentation was beautiful. The wine pairing suggestions were spot on!</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <span>Regular Customer</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <p>I hosted my anniversary dinner here and the staff went above and beyond to make it special. The ambiance, food, and service were all perfect.</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
-                        <div class="author-info">
-                            <h4>Emily Rodriguez</h4>
-                            <span>First-time Visitor</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p>With over 20 years of experience in the real estate market, Elite Properties has established itself as a leader in luxury property sales and acquisitions. Our team of dedicated professionals is committed to providing exceptional service and finding the perfect property for your needs.</p>
+            <p>We pride ourselves on our extensive market knowledge, attention to detail, and personalized approach to each client. Whether you're buying, selling, or investing, we're here to guide you through every step of the process.</p>
         </div>
     </section>
     
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <p>123 Gourmet Street</p>
-                            <p>Foodie City, FC 12345</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <p>+1 (555) 123-4567</p>
-                            <p>Mon-Fri, 9:00 AM - 10:00 PM</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <p>reservations@gourmetdelight.com</p>
-                            <p>info@gourmetdelight.com</p>
-                        </div>
-                    </div>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
                 </div>
-                
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
         </div>
     </section>
     
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>Gourmet Delight is committed to providing exceptional dining experiences through exquisite cuisine, impeccable service, and a warm atmosphere.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-yelp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul style="list-style: none;">
-                        <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
-                        <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
-                        <li><a href="#menu" style="color: white; text-decoration: none;">Menu</a></li>
-                        <li><a href="#testimonials" style="color: white; text-decoration: none;">Testimonials</a></li>
-                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Opening Hours</h3>
-                    <div class="opening-hours">
-                        <p>Monday - Thursday: 11:00 AM - 10:00 PM</p>
-                        <p>Friday - Saturday: 11:00 AM - 11:00 PM</p>
-                        <p>Sunday: 10:00 AM - 9:00 PM</p>
-                        <p>Brunch: Sat-Sun 10:00 AM - 2:00 PM</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Gourmet Delight. All Rights Reserved.</p>
-            </div>
+        <div class="logo">Elite Properties</div>
+        <p>123 Real Estate Avenue, Suite 500<br>New York, NY 10001</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
+        <p>&copy; 2023 Elite Properties. All rights reserved.</p>
     </footer>
+    
+    <!-- Font Awesome for icons (you would need to add the CDN in a real project) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
